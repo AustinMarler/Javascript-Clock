@@ -1,6 +1,6 @@
 $(document).ready(function(){
 
-    var backgroundImages = ['https://wallpapers.wallhaven.cc/wallpapers/full/wallhaven-662225.jpg',
+    /* var backgroundImages = ['https://wallpapers.wallhaven.cc/wallpapers/full/wallhaven-662225.jpg',
     'https://wallpapers.wallhaven.cc/wallpapers/full/wallhaven-189413.jpg',
     'https://wallpapers.wallhaven.cc/wallpapers/full/wallhaven-52592.jpg',
     'https://wallpapers.wallhaven.cc/wallpapers/full/wallhaven-486163.jpg',
@@ -23,6 +23,21 @@ $(document).ready(function(){
             i = 0;
         }
         document.body.style.backgroundImage = `url("${backgroundImages[i]}")`;
-    }, 5000);
+    }, 5000); */
+
+    var hexa = document.querySelector("#time");
+    var hexaNum = Math.floor(Math.random() * 16777215);
+
+    hexaNumStr = ("000000" + hexaNum.toString(16).slice(0, 6).toUpperCase()).slice(-6);
+
+    hexa.innerHTML = `#${hexaNumStr}`;
+    document.body.style.backgroundColor = `#${hexaNumStr}`;
+
+    setInterval(function(){
+        hexaNum++;
+        hexaNumStr = ("000000" + hexaNum.toString(16).slice(0, 6).toUpperCase()).slice(-6);
+        hexa.innerHTML = `#${hexaNumStr}`;
+        document.body.style.backgroundColor = `#${hexaNumStr}`;
+    }, 100);
 
 })
